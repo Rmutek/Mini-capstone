@@ -1,0 +1,8 @@
+<h3>Name: <%= @product.name %></h3>
+<p>Image: <%= @product.image %></p>
+<p>Mat Price: $<%= @product.price %></p>
+<p>Description: <%= @product.description %></p>
+<%= form_tag "/products/#{@product.id}", method: :delete do %> 
+  <input type="Submit" value="Destroy Yoga Mat">
+<% end %> 
+
