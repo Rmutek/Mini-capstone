@@ -1,6 +1,6 @@
 <h1>All Products</h1>
 <p><% @products.each do |product| %></p>
-<h3><a href="/products/<%= 1 %>"> Name: <%= product.name %></a></h3>
+<h3><a href="/products/<%= product.id%>">Name: <%= product.name %></a></h3>
 <p>Image: <%= product.image %></p>
 <p>Mat Price: $<%= product.price %></p>
 <p>Description: <%= product.description %></p>
