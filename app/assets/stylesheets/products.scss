@@ -3,5 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body { 
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-  background-image: url('light_toast.png');
+  background: #4ECDC4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #4ECDC4 , #556270); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #4ECDC4 , #556270); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+.navbar-brand {
+ font-family: 'Arima Madurai', cursive;
+  font-size: 2em;
+}
+
+.product-image {
+  width: 100%;
+  padding-bottom: 1em;
+}
+
+.well {
+  min-height: 500px;
+  background-color: rgba(255,255,255,0.6);
+}
+
+.r {
+  color: black;
+}
+
+p {
+  color: #FFFFFF
 }

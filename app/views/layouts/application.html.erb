@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Carter+One" rel="stylesheet">
   </head>
 
   <body>
@@ -62,7 +63,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  <div class="container" </div>
+  <div class="container">
+  <% flash.each do |name, message| %>
+  <div class="alert alert-<%= name %> alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</span><span class="sr-only">Close</span></button>
+    <%= message.html_safe %>  
+  </div>
+<% end %>
     <%= yield %>
   </body>
 </html>

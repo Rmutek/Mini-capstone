@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     description: params[:form_description]
     ) 
     product.save
+    flash[:success] = "Update Made!"
     render "create.html.erb"
   end 
 
