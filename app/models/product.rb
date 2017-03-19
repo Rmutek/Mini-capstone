@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
   def sales_message 
-    if price < 30
+    if price < 35
       "Discounted Item!"
     else 
       "Full Price"
@@ -14,6 +14,10 @@ class Product < ApplicationRecord
 
   def total
     price + tax
+  end 
+
+  def discounted? 
+    return price.to_f < 25
   end 
 
 end
