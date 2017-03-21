@@ -1,9 +1,15 @@
 class ProductsController < ApplicationController
   
   def index #purpose of index is to put the array 
-    # sort_attribute = params[:sort_by] || "name"
-    @products = Product.all.order(params[:sort_by]|| params[:sort_by] => params[:sort_order])
+    if params[:discounted]
+      @products = Product.where("price > ?",  35)
+    else 
+      sort_attribute = params[:sort_by] || "name" 
+      sort_attribute_order = params[:sort_order] || "asc"
+      @products = Product.all.order(sort_attribute => sort_attribute_order)
     render "index.html.erb"
+    
+    end
   end 
 
   def new 
