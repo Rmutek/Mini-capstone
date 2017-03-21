@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       sort_attribute = params[:sort_by] || "name" 
       sort_attribute_order = params[:sort_order] || "asc"
       @products = Product.all.order(sort_attribute => sort_attribute_order)
-    render "index.html.erb"
+      render "index.html.erb"
     
     end
   end 
