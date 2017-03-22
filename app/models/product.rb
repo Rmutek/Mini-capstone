@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many :images
 
   def sales_message 
     if price < 35
