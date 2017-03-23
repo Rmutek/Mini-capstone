@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   
   def index #purpose of index is to put the array 
+    # if session[:count] == nil
+    # session[:count] += 1 #hash rails will use to save cookies 
+
     if params[:discounted]
       @products = Product.where("price > ?",  35)
     else 
@@ -8,9 +11,8 @@ class ProductsController < ApplicationController
       sort_attribute_order = params[:sort_order] || "asc"
       @products = Product.all.order(sort_attribute => sort_attribute_order)
       render "index.html.erb"
-    
-    end
-  end 
+    end 
+  end
 
   def new 
     render "new.html.erb"
@@ -62,5 +64,5 @@ class ProductsController < ApplicationController
     @product = Product.all
     render "discounted.html.erb"
   end 
-
 end
+ 
