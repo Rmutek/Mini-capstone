@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   has_many :images
+  has_many :orders
   belongs_to :supplier
-
+  
   def sales_message 
     if price < 35
       "Discounted Item!"

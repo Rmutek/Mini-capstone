@@ -1,3 +1,9 @@
+<% if current_user %> 
+  <p>Hi <%= current_user.name %>!</p>
+<% else %>
+<p>You are not logged in</p>
+<% end %> 
+
 <h1>All Products</h1>
 <div><a class="r" href="/products/new">Create a new product</a>
 <div><h1>    </h1>
