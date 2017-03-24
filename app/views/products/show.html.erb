@@ -9,9 +9,23 @@
 <p>Total: $<%=@product.total %></p>
 <p><%= @product.sales_message %></p>
 <p>Description: <%= @product.description %></p>
+
+<%= form_tag "/orders", method: :post do %> 
+<div class="form-group">
+<input type="text" name="quantity" id="exampleInputName" placeholder="Quantity"> </div>
+
+<div class="form-group">
+  <input type="text" name="product_id" id="exampleInputName" placeholder="Product_id"> </div>
+
+<input type="Submit" value="Buy Now! "> 
+<% end %> 
+
+<div></div>
 <div><a class="btn btn-default" href="/products/<%= @product.id%>/edit">Edit</a></div>
 <a class="btn btn-default" href= "/products"> Home Page</a>
 <%= form_tag "/products/#{@product.id}", method: :delete do %> 
   <input type="Submit" value="Destroy Yoga Mat">
-<% end %> 
+<% end %>
+<div>  </div>
+
 
