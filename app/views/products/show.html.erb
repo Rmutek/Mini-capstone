@@ -15,7 +15,7 @@
 <input type="text" name="quantity" id="exampleInputName" placeholder="Quantity"> </div>
 
 <div class="form-group">
-  <input type="text" name="product_id" id="exampleInputName" placeholder="Product_id"> </div>
+  <input type="hidden" name="product_id" id="exampleInputName" placeholder="Product_id" value="<%= @product.id %>" > </div>
 
 <input type="Submit" value="Buy Now! "> 
 <% end %> 
