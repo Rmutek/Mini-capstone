@@ -1,5 +1,8 @@
-<h3>Name: <%= @product.name %></h3>
-<h5>Made by: <%= @product.supplier.name %></h5>
+<h2>Name: <%= @product.name %></h2>
+<h4>Made by: <%= @product.supplier.name %></h4>
+<p>Category: </p><% @product.categories.each do | category| %> 
+<p> <%= category.name %></p>
+<% end %> 
 <p>Images: </p>
 <% @product.images.each do |image| %>
   <img class="product-image" src="<%= image.url %>" alt="">
@@ -10,6 +13,7 @@
 <p><%= @product.sales_message %></p>
 <p>Description: <%= @product.description %></p>
 
+<h4>To purchase please enter the quantity:</h4>
 <%= form_tag "/orders", method: :post do %> 
 <div class="form-group">
 <input type="text" name="quantity" id="exampleInputName" placeholder="Quantity"> </div>

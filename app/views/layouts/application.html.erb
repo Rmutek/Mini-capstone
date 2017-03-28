@@ -35,7 +35,9 @@
             <li><a href="/products?sort_by=price&sort_order=asc">Sort by Price (Lowest to Highest)</a></li>
             <li><a href="/products?sort_by=price&sort_order=desc">Sort by Price (Highest to Lowest)</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <% Category.all.each do |category| %>
+            <li><a href="/products?category=<%= category.name %>"><%=category.name%></a></li>
+            <% end %> 
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>

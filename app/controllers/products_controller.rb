@@ -4,14 +4,17 @@ class ProductsController < ApplicationController
     # if session[:count] == nil
     # session[:count] += 1 #hash rails will use to save cookies 
 
-    if params[:discounted]
+    if params[:discounted] == "true" 
       @products = Product.where("price > ?",  35)
+    elsif params[:category]
+      category = Category.find_by(name: params[:category]) 
+      @products = category.products
     else 
       sort_attribute = params[:sort_by] || "name" 
       sort_attribute_order = params[:sort_order] || "asc"
       @products = Product.all.order(sort_attribute => sort_attribute_order)
-      render "index.html.erb"
     end 
+    render "index.html.erb" 
   end
 
   def new 
