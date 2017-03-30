@@ -1,0 +1,8 @@
+<h3>Order Overview:</h3>
+<% @carted_products.each do |carted_product| %>
+<h3>Product Name: <%= carted_product.product.name %></h3>
+<h3>Quantity: <%= carted_product.quantity %> </h3>
+<% end %> 
+<%= form_tag "/orders", method: :post do %> 
+  <input type="Submit" value="Buy Now">
+<% end %> 

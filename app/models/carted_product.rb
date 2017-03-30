@@ -1,5 +1,9 @@
 class CartedProduct < ApplicationRecord
-  belongs_to :orders 
-  belongs_to :products 
-  belongs_to :users 
+  belongs_to :order, optional: true
+  belongs_to :product
+  belongs_to :user 
+
+  # def product
+  #   Product.find_by(id: self.product_id)
+  # end
 end
