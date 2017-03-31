@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
       redirect_to "/"
       return 
     end 
-
+    @product = Product.new 
     render "new.html.erb"
   end 
 
@@ -34,15 +34,18 @@ class ProductsController < ApplicationController
       return 
     end 
 
-    product = Product.new(
+    @product = Product.new(
     name: params[:form_name],
     image: params[:form_image],
     price: params[:form_price],
     description: params[:form_description]
     ) 
-    product.save
-    flash[:success] = "Update Made!"
-    render "create.html.erb"
+    if @product.save
+      flash[:success] = "Update Made!"
+      render "create.html.erb"
+    else 
+      render "new.html.erb"
+    end 
   end 
 
   def show #purpose of show is to show one product 

@@ -1,24 +1,35 @@
 <h3>Create New Yoga Mat</h3>
+
+<% if @product.errors.any? %> 
+  <div id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "Error") %> product did not save: </h2>
+     <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 <%= form_tag "/products", method: :post do %>
 
 <div class="form-group">
   <label for="exampleInputName">Name</label>
-  <input type="text" name="form_name" class="form-control" id="exampleInputName" placeholder="Name">
+  <input type="text" name="form_name" class="form-control" id="exampleInputName" placeholder="Name" value="<%= @product.name %>">
 </div>
 
 <div class="form-group">
   <label for="exampleInputImage">Image</label>
-  <input type="text" name="form_image" class="form-control" id="exampleInputName" placeholder="Image">
+  <input type="text" name="form_image" class="form-control" id="exampleInputName" placeholder="Image" value="<%= @product.image %>">
 </div>
 
 <div class="form-group">
   <label for="exampleInputPrice">Price</label>
-  <input type="text" name="form_price" class="form-control" id="exampleInputName" placeholder="Price">
+  <input type="text" name="form_price" class="form-control" id="exampleInputName" placeholder="Price" value="<%= @product.price %>">
 </div>
 
 <div clas="form-group">
   <label for="exampleInputPrice">Description</label>
-  <input type="text" name="form_description" class="form-control" id="exampleInputName" placeholder="Description">
+  <input type="text" name="form_description" class="form-control" id="exampleInputName" placeholder="Description" value="<%= @product.description %>">
 </div>
 <input type="submit" class="btn btn-default" value="Submit New Yoga Mat"> 
 <% end %> 

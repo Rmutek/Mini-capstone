@@ -7,13 +7,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authenticate_user! 
+    flash[:warning] = "Please login"
     redirect_to "/login" unless current_user
   end 
 
   def authenticate_admin!
     unless current_user && current_user.admin 
       redirect_to "/"
-    return 
+      return 
+    end
   end 
   
 end
