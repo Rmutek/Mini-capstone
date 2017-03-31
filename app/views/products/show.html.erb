@@ -23,13 +23,14 @@
 
 <input type="Submit" value="Add to Cart"> 
 <% end %> 
-
-<div></div>
-<div><a class="btn btn-default" href="/products/<%= @product.id%>/edit">Edit</a></div>
 <a class="btn btn-default" href= "/products"> Home Page</a>
+<% if current_user && current_user.admin %> 
+<div>
+<div><a class="btn btn-default" href="/products/<%= @product.id%>/edit">Edit</a></div>
 <%= form_tag "/products/#{@product.id}", method: :delete do %> 
   <input type="Submit" value="Destroy Yoga Mat">
 <% end %>
-<div>  </div>
+<div>
+<% end %> 
 
 

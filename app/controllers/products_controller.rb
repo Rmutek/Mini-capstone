@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+
+  before_action :authenticate_admin!, except: [:index, :show]
   
   def index #purpose of index is to put the array 
     # if session[:count] == nil
@@ -18,10 +20,20 @@ class ProductsController < ApplicationController
   end
 
   def new 
+    unless current_user && current_user.admin 
+      redirect_to "/"
+      return 
+    end 
+
     render "new.html.erb"
   end 
 
   def create
+    unless current_user && current_user.admin 
+      redirect_to "/"
+      return 
+    end 
+
     product = Product.new(
     name: params[:form_name],
     image: params[:form_image],
@@ -39,13 +51,23 @@ class ProductsController < ApplicationController
     render "show.html.erb"
   end 
 
-  def edit 
+  def edit
+    unless current_user && current_user.admin
+      redirect_to "/"
+      return 
+    end  
+
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
     render "edit.html.erb"
   end 
 
   def update 
+    unless current_user && current_user.admin 
+      redirect_to "/"
+      return 
+    end 
+
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
     @product.name = params[:form_name]
@@ -57,6 +79,11 @@ class ProductsController < ApplicationController
   end 
 
   def destroy
+    unless current_user && current_user.admin 
+      redirect_to "/"
+      return 
+    end 
+
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
     @product.destroy
